@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Read Reuse Renew</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #4B0082;
+    }
+    .hidden {
+      display: none;
+    }
+    input, textarea, select, button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .link {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .chat-box {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      background: #4B0082;
+      padding: 10px;
+      color: white;
+      border-radius: 0 0 10px 10px;
+    }
+    .nav span {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="login-page">
+    <h1>Read Reuse Renew</h1>
+    <h2>Login</h2>
+    <label>Email:</label>
+    <input type="email" placeholder="Enter email" />
+    <label>Password:</label>
+    <input type="password" placeholder="Enter password" />
+    <label><input type="checkbox" /> Remember Me</label>
+    <span class="link">Forgot Password?</span>
+    <p>Don't have an account? <span class="link" onclick="showPage('register-page')">Register</span></p>
+    <button onclick="showPage('home-page')">Login</button>
+  </div>
+
+  <div class="container hidden" id="register-page">
+    <h2>Register</h2>
+    <label>Username:</label>
+    <input type="text" placeholder="Enter username" />
+    <label>Email:</label>
+    <input type="email" placeholder="Enter email" />
+    <label>Password:</label>
+    <input type="password" placeholder="Enter password" />
+    <label><input type="checkbox" /> I accept the Terms and Conditions</label>
+    <p>Already have an account? <span class="link" onclick="showPage('login-page')">Login</span></p>
+    <button onclick="showPage('home-page')">Register</button>
+  </div>
+
+  <div class="container hidden" id="home-page">
+    <div class="nav">
+      <span onclick="showPage('home-page')">Home</span>
+      <span onclick="showPage('donate-page')">Donate</span>
+    </div>
+    <h2>Welcome to Read Reuse Renew</h2>
+    <p>Books are the foundation of knowledge. Donating books is a noble way to spread education and empower minds. Through this platform, we aim to connect donors with readers, and ensure that every book finds a second life.</p>
+  </div>
+
+  <div class="container hidden" id="donate-page">
+    <div class="nav">
+      <span onclick="showPage('home-page')">Home</span>
+      <span onclick="showPage('donate-page')">Donate</span>
+    </div>
+    <h2>Donate a Book</h2>
+    <label>Book Title:</label>
+    <input type="text" placeholder="e.g., The Alchemist" />
+    <label>Book Description:</label>
+    <textarea placeholder="Write something about the book..."></textarea>
+    <label>Upload Book Image:</label>
+    <input type="file" />
+    <label>Your Name:</label>
+    <input type="text" placeholder="Donor's name" />
+    <label>Your Email:</label>
+    <input type="email" placeholder="Donor's email" />
+    <label>Your Contact Number:</label>
+    <input type="text" placeholder="Phone number" />
+    <label>Your Location:</label>
+    <input type="text" placeholder="City, State" />
+    <button>Submit Donation</button>
+
+    <div class="chat-box">
+      <h3>Chat with Donor</h3>
+      <label>Contact Donor:</label>
+      <p>Email: donor@example.com<br>Phone: 9876543210</p>
+      <label>Location of Donor:</label>
+      <p>Hyderabad, India</p>
+      <label>Your Message:</label>
+      <textarea placeholder="Ask about the book..."></textarea>
+      <button>Send Message</button>
+    </div>
+  </div>
+
+  <script>
+    function showPage(id) {
+      ['login-page', 'register-page', 'home-page', 'donate-page'].forEach(page => {
+        document.getElementById(page).classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
